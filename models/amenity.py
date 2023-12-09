@@ -13,4 +13,4 @@ class Amenity(BaseModel):
     Attributes:
         name (str): The name of the Amenity.
     """
-    self.name = ""
+    name = ""

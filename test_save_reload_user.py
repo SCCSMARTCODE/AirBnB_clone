@@ -2,7 +2,7 @@
 from models import storage
 # from models.base_model import BaseModel
 from models.user import User
-from models.base_models import BaseModel
+from models.base_model import BaseModel
 
 all_objs = storage.all()
 print("-- Reloaded objects --")
