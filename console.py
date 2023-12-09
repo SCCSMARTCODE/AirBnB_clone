@@ -105,8 +105,8 @@ class HBNBCommand(cmd.Cmd):
         key = "{}.{}".format(args[0], args[1])
 
         if print_:
-            storage_all[key][a] = datetime.datetime.fromisoformat(
-                    storage_all[key][a]
+            storage.all()[key][a] = datetime.datetime.fromisoformat(
+                    storage.all()[key][a]
             )
 
             key = "{}.{}".format(args[0], args[1])
