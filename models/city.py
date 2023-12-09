@@ -1,12 +1,19 @@
 #!/usr/bin/python3
-"""This module contains the City class that inherits from BaseModel"""
+"""
+This module contains the
+        City class that inherits from BaseModel
+"""
 
-from .base_models import BaseModel
-from uuid import uuid4
+from models.base_model import BaseModel
 
 
 class City(BaseModel):
-    """A class representing a city, inheriting from BaseModel"""
+    """
+    A class representing a city, inheriting from BaseModel.
 
+    Attributes:
+        state_id (str): The ID of the state to which the city belongs.
+        name (str): The name of the city.
+    """
     state_id = ""
     name = ""

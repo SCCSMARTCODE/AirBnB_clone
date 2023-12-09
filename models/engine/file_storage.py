@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 """
-This module contains the file or database structuring class
+This module contains the file or database structuring class.
 """
+
 import json
 import os
 
@@ -11,18 +12,28 @@ class FileStorage:
     A class for file or database structuring.
     """
 
-    __file_path = "file.json"
-    __object = {}
+    def __init__(self):
+        """
+        Initialize the FileStorage class.
+        """
+        self.__file_path = "file.json"
+        self.__object = {}
 
     def all(self):
         """
         Return all the stored objects.
+
+        Returns:
+            dict: A dictionary containing all the stored objects.
         """
         return self.__object
 
     def new(self, obj):
         """
         Add a new object to the stored objects.
+
+        Args:
+            obj (object): The object to be added.
         """
         self.__object.update({
             obj.__class__.__name__ + '.' + obj.id: obj.to_dict()

@@ -1,11 +1,22 @@
 #!/usr/bin/python3
-"""This module contains the User class that inherits from BaseModel"""
+"""
+This module contains the
+            User class that inherits from BaseModel
+"""
 
-from .base_models import BaseModel
+from models.base_model import BaseModel
 
 
 class User(BaseModel):
-    """A class representing a user, inheriting from BaseModel"""
+    """
+    A class representing a user, inheriting from BaseModel.
+
+    Attributes:
+        email (str): The email address of the user.
+        password (str): The password of the user.
+        first_name (str): The first name of the user.
+        last_name (str): The last name of the user.
+    """
 
     email = ""
     password = ""

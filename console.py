@@ -1,9 +1,10 @@
+#!/usr/bin/python3
 """This is the command line module"""
 
 import cmd
 import datetime
 from models import storage
-from models.base_models import BaseModel
+from models.base_model import BaseModel
 from models.city import City
 from models.amenity import Amenity
 from models.review import Review
@@ -50,7 +51,6 @@ class HBNBCommand(cmd.Cmd):
         print("*** Unknown syntax: {}".format(arg))
         return False
 
-
     def emptyline(self):
         """Do nothing upon receiving an empty line."""
         pass
@@ -93,21 +93,46 @@ class HBNBCommand(cmd.Cmd):
 
         print_ = False
         for x in storage.all().keys():
-            if args[1] == storage.all()[x]["id"] and args[0] == storage.all()[x]["__class__"]:
+            if args[1] == storage.all()[x]["id"] and \
+                    args[0] == storage.all()[x]["__class__"]:
 
                 print_ = True
                 break
+        a = "created_at"
+        b = "updated_at"
+        key = "{}.{}".format(args[0], args[1])
 
         if print_:
-            storage.all()["{}.{}".format(args[0], args[1])]["created_at"] = datetime.datetime.fromisoformat(storage.all()["{}.{}".format(args[0], args[1])]["created_at"])
-            storage.all()["{}.{}".format(args[0], args[1])]["updated_at"] = datetime.datetime.fromisoformat((storage.all()["{}.{}".format(args[0], args[1])]["updated_at"]))
+            storage_all[key][a] = datetime.datetime.fromisoformat(
+                    storage_all[key][a]
+            )
 
-            print("[{}] ({})".format(args[0], args[1]), storage.all()["{}.{}".format(args[0], args[1])])
+            key = "{}.{}".format(args[0], args[1])
+            storage_all = storage.all()
+
+            storage_all[key][b] = datetime.datetime.fromisoformat(
+                    storage_all[key][b]
+            )
+
+            print("[{}] ({})".format(
+                args[0],
+                args[1]),
+                storage.all()["{}.{}".format(args[0], args[1])]
+                )
         else:
             print("** no instance found **")
         if print_:
-            storage.all()["{}.{}".format(args[0], args[1])]["created_at"] = storage.all()["{}.{}".format(args[0], args[1])]["created_at"].isoformat()
-            storage.all()["{}.{}".format(args[0], args[1])]["updated_at"] = storage.all()["{}.{}".format(args[0], args[1])]["updated_at"].isoformat()
+            a = "created_at"
+            b = "updated_at"
+            key = "{}.{}".format(args[0], args[1])
+            storage_all = storage.all()
+
+            storage_all[key][a] = storage_all[key][a].isoformat()
+
+            key = "{}.{}".format(args[0], args[1])
+            storage_all = storage.all()
+
+            storage_all[key][b] = storage_all[key][b].isoformat()
 
     def do_destroy(self, args):
         """This removes or clears data"""
@@ -125,7 +150,8 @@ class HBNBCommand(cmd.Cmd):
             return
 
         for x in storage.all().keys():
-            if args[1] == storage.all()[x]["id"] and args[0] == storage.all()[x]["__class__"]:
+            if args[1] == storage.all()[x]["id"] and \
+                    args[0] == storage.all()[x]["__class__"]:
                 """Work to do"""
                 del storage.all()[x]
                 storage.save()
@@ -257,7 +283,7 @@ class HBNBCommand(cmd.Cmd):
                 break
 
     def do_quit(self, arg):
-            """This exit the program"""
+        """This exit the program"""
         return True
 
     def do_count(self, arg):
@@ -273,4 +299,3 @@ class HBNBCommand(cmd.Cmd):
 
 if __name__ == "__main__":
     HBNBCommand().cmdloop()
-
