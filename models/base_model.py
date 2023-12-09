@@ -4,7 +4,6 @@
         this will be the control class
             the mother class.
 """
-
 import uuid
 import datetime
 from . __init__ import storage
