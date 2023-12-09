@@ -81,6 +81,8 @@ class HBNBCommand(cmd.Cmd):
         """Do_show shows data"""
         args = args.strip()
         args = args.split()
+        args[1] = args[1].strip('"')
+
         if len(args) <= 0 or args is None or args[0] == "":
             print("** class name missing **")
             return
@@ -138,6 +140,7 @@ class HBNBCommand(cmd.Cmd):
         """This removes or clears data"""
         args = args.strip()
         args = args.split()
+        args[1] = args[1].strip('"')
 
         if len(args) <= 0 or args is None or args[0] == "":
             print("** class name missing **")
@@ -229,7 +232,16 @@ class HBNBCommand(cmd.Cmd):
     def do_update(self, args):
         """This updates atributes"""
         args = args.strip()
+        my_arg = []
+        for x in range(len(args)):
+            if args[x] != '"' and args[x] != ",":
+                my_arg.append(args[x])
+
+        args = "".join(my_arg)
         args = args.split()
+
+
+
         if len(args) != 4:
             return
         if args[0] == '':
