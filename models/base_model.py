@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 """
     This is the class that contains the base-model
+        this will be the control class
+            the mother class.
 """
 
 import uuid
@@ -12,6 +14,7 @@ class BaseModel:
     """
     A base model class that defines common
                 attributes and methods for other classes.
+            Inheriting from object.
     """
 
     def __init__(self, *args, **kwargs):
