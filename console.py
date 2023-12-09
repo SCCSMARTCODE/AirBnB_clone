@@ -240,8 +240,6 @@ class HBNBCommand(cmd.Cmd):
         args = "".join(my_arg)
         args = args.split()
 
-
-
         if len(args) != 4:
             return
         if args[0] == '':
