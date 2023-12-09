@@ -81,7 +81,6 @@ class HBNBCommand(cmd.Cmd):
         """Do_show shows data"""
         args = args.strip()
         args = args.split()
-        args[1] = args[1].strip('"')
 
         if len(args) <= 0 or args is None or args[0] == "":
             print("** class name missing **")
@@ -92,6 +91,7 @@ class HBNBCommand(cmd.Cmd):
         elif len(args) == 1:
             print("** instance id missing **")
             return
+        args[1] = args[1].strip('"')
 
         print_ = False
         for x in storage.all().keys():
@@ -140,7 +140,6 @@ class HBNBCommand(cmd.Cmd):
         """This removes or clears data"""
         args = args.strip()
         args = args.split()
-        args[1] = args[1].strip('"')
 
         if len(args) <= 0 or args is None or args[0] == "":
             print("** class name missing **")
@@ -151,6 +150,7 @@ class HBNBCommand(cmd.Cmd):
         elif len(args) == 1:
             print("** instance id missing **")
             return
+        args[1] = args[1].strip('"')
 
         for x in storage.all().keys():
             if args[1] == storage.all()[x]["id"] and \
