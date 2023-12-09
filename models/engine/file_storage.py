@@ -33,7 +33,7 @@ class FileStorage:
         Save the stored objects to a file.
         """
         with open(self.__file_path, 'w') as f:
-            json.dump(self.__object, f, indent=4)
+            json.dump(self.__object, f)
 
     def reload(self):
         """
