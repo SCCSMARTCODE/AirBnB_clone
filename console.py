@@ -240,9 +240,7 @@ class HBNBCommand(cmd.Cmd):
         args = "".join(my_arg)
         args = args.split()
 
-        if len(args) != 4:
-            return
-        if args[0] == '':
+        if not args:
             print("** class name missing **")
             return
         elif args[0] not in self.class_box.keys():
