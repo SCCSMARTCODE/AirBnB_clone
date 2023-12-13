@@ -11,8 +11,8 @@ class FileStorage:
     """
     A class for file or database structuring.
     """
-        self.__file_path = "file.json"
-        self.__object = {}
+        __file_path = "file.json"
+        __object = {}
 
     def all(self):
         """
