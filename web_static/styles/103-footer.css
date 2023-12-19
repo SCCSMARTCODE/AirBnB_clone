@@ -1,13 +1,13 @@
-footer {
-    align-items: center;
+/* footer styles */
+
+footer{
     background-color: #fff;
     border-top: 1px solid #ccc;
-    /* margin-bottom: 0; */
+    height: 60px;
+    width: 100%;
+    align-items: center;
     display: flex;
     height: 60px;
     justify-content: center;
     position: absolute;
-    width: 100%;
-    bottom: 0;
-    position: fixed;
-  }
+}
