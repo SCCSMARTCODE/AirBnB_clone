@@ -78,7 +78,6 @@ p[class = "faketext"]{
 
 }
 h2[class = "faketext state"]{
-    /* margin-top: 10%;*/
     margin-bottom: 5%;
     font-size: 20px;
     font-weight: 900;
@@ -95,4 +94,21 @@ h2[class = "faketext state"]{
 ul[class="popover fakelist"]{
     padding-top: 10%;
     padding-bottom: 10%;
+}
+
+@media screen and (max-width: 670px) {
+    h2[class = "faketext state"]{
+        font-size: 15px;
+    }
+    .popover{
+        width: 150%;
+        box-sizing: border-box;
+        text-align: left;
+        padding-bottom: 0;
+        margin-top: 10%;
+        margin-bottom: 0%;
+    }
+    .filters{
+        height: 80px;
+    }
 }
